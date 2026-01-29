@@ -1,3 +1,7 @@
+// This defines prompt so it  can be used in Node.js in the console without a browser //
+
+const prompt = require('prompt-sync')();
+
 // This functions randomly returns: Paper, Scissors or Rock // 
 
 function getComputerChoice() {
@@ -12,5 +16,10 @@ function getComputerChoice() {
 
 }
 
+function getHumanChoice() {
+    let humanAnswer = prompt("Chose between Paper, Rock and Scissors: ");
+    return humanAnswer;
+}
 
 console.log(getComputerChoice());
+console.log(getHumanChoice());
