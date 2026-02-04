@@ -7,6 +7,11 @@ let computerScore = 0;
 let humanChoice = "";
 
 let startGame = document.querySelectorAll(".humanBtn");
+const divResults = document.querySelector("#results");
+const para = document.createElement("p");
+para.textContent = "";
+const roundWinner = document.createElement("p");
+roundWinner.textContent = "";
 
 startGame.forEach(button => {
     button.addEventListener("click", () => {
@@ -37,36 +42,39 @@ function getComputerChoice() {
 function playRound(humanChoice,computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
+    para.textContent = `Human shows ${humanChoice} and Computer shows ${computerChoice}`;
 
-    console.log (`Human shows ${humanChoice} and Computer shows ${computerChoice}`);
+    divResults.appendChild(para);
+
     if (humanChoice == computerChoice ) {
-        return console.log("It's a tie, play again!");
+        roundWinner.textContent = "It's a tie, play again!";
     }
     else if (humanChoice == "paper" && computerChoice == "rock") {
         humanScore++;
-        return console.log("Human wins!");
+        roundWinner.textContent = "Human wins!";
     }
         else if (humanChoice == "paper" && computerChoice == "scissors") {
         computerScore++;
-        return console.log("Computer wins!");
+        roundWinner.textContent = "Computer wins!";
     }
         else if (humanChoice == "scissors" && computerChoice == "paper") {
         humanScore++;
-        return console.log("Human wins!");
+        roundWinner.textContent = "Human wins!";
     }
         else if (humanChoice == "scissors" && computerChoice == "rock") {
         computerScore++;
-        return console.log("Computer wins!");
+        roundWinner.textContent = "Computer wins!";
     }
             else if (humanChoice == "rock" && computerChoice == "scissors") {
         humanScore++;
-        return console.log("Human wins!");
+        roundWinner.textContent = "Human wins!";
     }
         else if (humanChoice == "rock" && computerChoice == "paper") {
         computerScore++;
-        return console.log("Computer wins!");
+        roundWinner.textContent = "Computer wins!";
     }
 
+    divResults.appendChild(roundWinner);
 }
 
 function playGame() {
