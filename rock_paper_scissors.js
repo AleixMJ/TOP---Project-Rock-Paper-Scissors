@@ -1,12 +1,23 @@
 // This defines prompt so it  can be used in Node.js in the console without a browser //
 
-const prompt = require('prompt-sync')();
+// TO WORK ON console uncomment this const prompt = require('prompt-sync')(); //
 
 let humanScore = 0;
 let computerScore = 0;
+let humanChoice = "";
 
+let startGame = document.querySelectorAll(".humanBtn");
 
+startGame.forEach(button => {
+    button.addEventListener("click", () => {
+        humanChoice = button.dataset.choice;
+        console.log("You chose:", humanChoice);
+        playGame();
+    })
 
+});
+
+console.log(startGame);
 
 // This functions randomly returns: Paper, Scissors or Rock // 
 
@@ -22,10 +33,6 @@ function getComputerChoice() {
 
 }
 
-function getHumanChoice() {
-    let humanAnswer = prompt("Chose between Paper, Rock and Scissors: ");
-    return humanAnswer;
-}
 
 function playRound(humanChoice,computerChoice) {
     humanChoice = humanChoice.toLowerCase();
@@ -68,10 +75,9 @@ function playGame() {
         console.log(`Round ${round}!`)
         console.log(`Human Score: ${humanScore} - Computer Score: ${computerScore}`)
         
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+           const computerSelection = getComputerChoice();
         
-        playRound(humanSelection, computerSelection)
+        playRound(humanChoice, computerSelection)
         round++;
     }
     if (humanScore > computerScore) {
@@ -81,4 +87,3 @@ function playGame() {
         console.log(`The winner is the Computer  / ${computerScore} / ${humanScore} against the Human`)
     }
     }
-playGame();
