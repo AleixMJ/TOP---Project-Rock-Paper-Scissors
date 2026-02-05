@@ -51,7 +51,7 @@ function getComputerChoice() {
 
 
 function playRound(humanChoice,computerChoice) {
-    if (round > 5) {
+    if (round >= 5) {
         alert("Game Finished");
         
     }
