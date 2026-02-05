@@ -17,6 +17,9 @@ matchResults.textContent = "";
 matchResults.setAttribute(
     "style", 
     "color: crimson; background: black; width: 60%; margin: 10px auto; padding: 10px")
+roundWinner.setAttribute(
+    "style", 
+    "color: yellow; background: darkgrey; width: 30%; margin: 10px auto; padding: 10px")
 const score = document.createElement("h3");
 score.textContent = "";
 
@@ -72,45 +75,44 @@ function playRound(humanChoice,computerChoice) {
     }  
 
 
-
-    roundTotal.textContent = `Round ${round}!`;
-    score.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
-    divResults.appendChild(roundTotal);
-    divResults.appendChild(score);
-    para.textContent = `Human shows ${humanChoice} and Computer shows ${computerChoice}`;
-
-    divResults.appendChild(para);
-
     if (humanChoice == computerChoice ) {
-        roundWinner.textContent = "It's a tie, play again!";
+        roundWinner.textContent = "This round It's a tie!";
     }
     else if (humanChoice == "Paper" && computerChoice == "Rock") {
         humanScore++;
-        roundWinner.textContent = "Human wins!";
+        roundWinner.textContent = "Human wins this round!";
     }
         else if (humanChoice == "Paper" && computerChoice == "Scissors") {
         computerScore++;
-        roundWinner.textContent = "Computer wins!";
+        roundWinner.textContent = "Computer wins this round!";
     }
         else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         humanScore++;
-        roundWinner.textContent = "Human wins!";
+        roundWinner.textContent = "Human wins this round!";
     }
         else if (humanChoice == "Scissors" && computerChoice == "Rock") {
         computerScore++;
-        roundWinner.textContent = "Computer wins!";
+        roundWinner.textContent = "Computer wins this round!";
     }
             else if (humanChoice == "Rock" && computerChoice == "Scissors") {
         humanScore++;
-        roundWinner.textContent = "Human wins!";
+        roundWinner.textContent = "Human wins this round!";
     }
         else if (humanChoice == "Rock" && computerChoice == "Paper") {
         computerScore++;
-        roundWinner.textContent = "Computer wins!";
+        roundWinner.textContent = "Computer wins this round!";
     }
 
     divResults.appendChild(roundWinner);
-    round++;
+    if (round < 5) {
+        round++;
+    }
+    roundTotal.textContent = `Round ${round}!`;
+    score.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
+    para.textContent = `Human shows ${humanChoice} and Computer shows ${computerChoice}`;
+    divResults.appendChild(para);
+    divResults.appendChild(roundTotal);
+    divResults.appendChild(score);
     console.log(round);
 }
 
