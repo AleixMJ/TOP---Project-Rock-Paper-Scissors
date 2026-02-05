@@ -1,6 +1,3 @@
-// This defines prompt so it  can be used in Node.js in the console without a browser //
-
-// TO WORK ON console uncomment this const prompt = require('prompt-sync')(); //
 
 let humanScore = 0;
 let computerScore = 0;
