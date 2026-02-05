@@ -13,10 +13,13 @@ const para = document.createElement("p");
 para.textContent = "";
 const roundWinner = document.createElement("p");
 roundWinner.textContent = "";
-const roundTotal = document.createElement("h4");
+const roundTotal = document.createElement("h2");
 roundTotal.textContent = "";
 const matchResults = document.createElement("h2");
 matchResults.textContent = "";
+matchResults.setAttribute(
+    "style", 
+    "color: crimson; background: black; width: 60%; margin: 10px auto; padding: 10px")
 const score = document.createElement("h3");
 score.textContent = "";
 
@@ -55,12 +58,17 @@ function playRound(humanChoice,computerChoice) {
     if (round == 5) {
         if (humanScore > computerScore) {
             matchResults.textContent = 
-            `The winner is the Human ${humanScore} / ${computerScore} against the Computer`;
+            `The winner is the Human! ${humanScore} vs ${computerScore}`;
             divResults.appendChild(matchResults);
         }
+        else if (humanScore == computerScore){
+            `It's a tie! ${humanScore} vs ${computerScore}`;
+            divResults.appendChild(matchResults);
+        }
+        
         else {
             matchResults.textContent =
-            `The winner is the Computer  / ${computerScore} / ${humanScore} against the Human`;
+            `The winner is the Computer!   ${computerScore} vs ${humanScore}`;
             divResults.appendChild(matchResults);
         }
         
