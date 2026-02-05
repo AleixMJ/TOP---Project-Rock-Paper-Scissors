@@ -72,8 +72,6 @@ function playRound(humanChoice,computerChoice) {
     score.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
     divResults.appendChild(roundTotal);
     divResults.appendChild(score);
-    humanChoice = humanChoice.toLowerCase();
-    computerChoice = computerChoice.toLowerCase();
     para.textContent = `Human shows ${humanChoice} and Computer shows ${computerChoice}`;
 
     divResults.appendChild(para);
@@ -81,27 +79,27 @@ function playRound(humanChoice,computerChoice) {
     if (humanChoice == computerChoice ) {
         roundWinner.textContent = "It's a tie, play again!";
     }
-    else if (humanChoice == "paper" && computerChoice == "rock") {
+    else if (humanChoice == "Paper" && computerChoice == "Rock") {
         humanScore++;
         roundWinner.textContent = "Human wins!";
     }
-        else if (humanChoice == "paper" && computerChoice == "scissors") {
+        else if (humanChoice == "Paper" && computerChoice == "Scissors") {
         computerScore++;
         roundWinner.textContent = "Computer wins!";
     }
-        else if (humanChoice == "scissors" && computerChoice == "paper") {
+        else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         humanScore++;
         roundWinner.textContent = "Human wins!";
     }
-        else if (humanChoice == "scissors" && computerChoice == "rock") {
+        else if (humanChoice == "Scissors" && computerChoice == "Rock") {
         computerScore++;
         roundWinner.textContent = "Computer wins!";
     }
-            else if (humanChoice == "rock" && computerChoice == "scissors") {
+            else if (humanChoice == "Rock" && computerChoice == "Scissors") {
         humanScore++;
         roundWinner.textContent = "Human wins!";
     }
-        else if (humanChoice == "rock" && computerChoice == "paper") {
+        else if (humanChoice == "Rock" && computerChoice == "Paper") {
         computerScore++;
         roundWinner.textContent = "Computer wins!";
     }
